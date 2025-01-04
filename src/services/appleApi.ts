@@ -24,7 +24,7 @@ const generateJWT = (): string => {
         kid: keyId,
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.log(error.message);
     
     return error.message
@@ -50,7 +50,7 @@ export const checkUDIDRegistration = async (udid: string): Promise<any> => {
     }
 
     return null; // Return null if no device found
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error checking UDID registration:", error.response?.data || error.message);
     throw new Error("Failed to check UDID registration.");
   }
@@ -82,7 +82,7 @@ export const registerUDID = async (udid: string, name: string, platform = "ios")
     );
 
     return response.data.data;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error registering UDID:", error.response?.data || error.message);
     throw new Error("Failed to register UDID.");
   }
