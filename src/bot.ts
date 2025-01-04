@@ -1,7 +1,6 @@
 import { Telegraf } from "telegraf";
 import { BOT_TOKEN } from "./utils/env";
 import { startCommand } from "./bot/commands/start";
-import { registerCommand } from "./bot/commands/register";
 import { helpCommand } from "./bot/commands/help";
 import { unknownCommandHandler } from "./bot/handlers/unknownCommand";
 import { loggerMiddleware } from "./bot/middlewares/logger";
@@ -14,7 +13,6 @@ export const setupBot = () => {
 
   // Register commands
   startCommand(bot);
-  registerCommand(bot);
   helpCommand(bot);
 
   // Catch unknown commands
